@@ -1,0 +1,14 @@
+.button{
+    -fx-text-fill: aliceblue;
+    -fx-background-color: mediumpurple;
+    -fx-border-radius: 10px;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+}
+#newGameButton{
+    -fx-text-fill: lightslategray;
+    -fx-background-color: coral;
+    -fx-border-radius: 10px;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+}
