@@ -18,6 +18,8 @@ public class Main extends Application {
     VBox designLayout = new VBox();
     HBox buttonLayout = new HBox();
     private Button newGameButton;
+    private Button exitButton;
+    private Button highScoreListButton;
     private List<Button> buttonList = new ArrayList<>();
 
 
@@ -37,8 +39,14 @@ public class Main extends Application {
 
         designLayout.getChildren().add(puzzleLayout);
         newGameButton = new Button("New Game");
-        newGameButton.setId("newGameButton");
+        newGameButton.setId("menuButton");
+        exitButton = new Button("Exit");
+        exitButton.setId("menuButton");
+        highScoreListButton = new Button("High Score");
+        highScoreListButton.setId("menuButton");
         buttonLayout.getChildren().add(newGameButton);
+        buttonLayout.getChildren().add(exitButton);
+        buttonLayout.getChildren().add(highScoreListButton);
         designLayout.getChildren().add(buttonLayout);
     }
 
@@ -79,7 +87,9 @@ public class Main extends Application {
         puzzleLayout.setVgap(2);
         puzzleLayout.setHgap(2);
         puzzleLayout.setPadding(new Insets(5));
-        Scene scene = new Scene(designLayout, 300, 275);
+        buttonLayout.setSpacing(5);
+        buttonLayout.setPadding(new Insets(10));
+        Scene scene = new Scene(designLayout, 350, 305);
         primaryStage.setScene(scene);
 
         scene.getStylesheets().add(Main.class.getResource("Style.css").toExternalForm());
