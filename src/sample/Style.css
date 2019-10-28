@@ -2,12 +2,16 @@
     -fx-text-fill: aliceblue;
     -fx-background-color: mediumpurple;
     -fx-border-radius: 10px;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 100px;
     -fx-font-family: "Arial Narrow";
     -fx-font-weight: bold;
 }
 #newGameButton{
     -fx-text-fill: lightslategray;
     -fx-background-color: coral;
+    -fx-pref-height: 100px;
+    -fx-pref-width: 1000px;
     -fx-border-radius: 10px;
     -fx-font-family: "Arial Narrow";
     -fx-font-weight: bold;
