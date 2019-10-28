@@ -26,6 +26,11 @@ public class Main extends Application {
         for (int i = 0; i < 15; i++){
             Button button = new Button("" + ++buttonNr);
             button.setMinWidth(50);
+            if(buttonNr%2 == 0){
+                button.setId("even");
+            }else{
+            button.setId("odd");
+            }
             button.setMinHeight(50);
             buttonList.add(button);
         }
