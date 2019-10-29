@@ -26,7 +26,6 @@ public class Main extends Application {
     private Button exitButton;
     private Button highScoreButton;
     private List<Button> buttonList = new ArrayList<>();
-    private int counter;
 
 
     public void createAllButtons() {
@@ -93,6 +92,10 @@ public class Main extends Application {
         }
     }
 
+    public void addSoundsEffectWhenClicked(){
+
+    }
+
     public Node getButtonFromPuzzle(int col, int row){
         for(Node node: puzzleLayout.getChildren()){
             if(GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row){
@@ -134,6 +137,7 @@ public class Main extends Application {
     public void shuffleButton() {
         Collections.shuffle(buttonList);
         emptyPuzzleLayout();
+        int counter = 0;
         for (int y = 0; y <= 3; y++) {
             for (int x = 0; x <= 3; x++) {
                 if(counter == 15){
@@ -162,7 +166,8 @@ public class Main extends Application {
         buttonLayout.setPadding(new Insets(10));
         Scene scene = new Scene(designLayout, 350, 305);
         primaryStage.setScene(scene);
-        primaryStage.getIcons().add(new Image("File:pikachu.png"));
+        Image image = new Image("/pikachu.png");
+        primaryStage.getIcons().add(image);
         scene.getStylesheets().add(Main.class.getResource("Style.css").toExternalForm());
         createAllButtons();
         shuffleButton();
