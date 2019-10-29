@@ -27,6 +27,8 @@ public class Main extends Application {
     private Button highScoreButton;
     private List<Button> buttonList = new ArrayList<>();
 
+    private MusicPlayer musicPlayer;
+
 
     public void createAllButtons() {
         int buttonNr = 0;
@@ -65,6 +67,8 @@ public class Main extends Application {
         int columnIndex = GridPane.getColumnIndex(clickedButton);
         int rowIndex = GridPane.getRowIndex(clickedButton);
 
+        musicPlayer.playSound();
+
         if(getButtonFromPuzzle(columnIndex-1,rowIndex) == null){
             if(columnIndex-1>=0){
             puzzleLayout.getChildren().remove(clickedButton);
@@ -92,7 +96,8 @@ public class Main extends Application {
         }
     }
 
-    public void addSoundsEffectWhenClicked(){
+    public void addSoundsEffectWhenClicked() throws IllegalArgumentException{
+
 
     }
 
@@ -156,7 +161,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         //Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("The Fifteen Puzzle");
         puzzleLayout.setVgap(2);
@@ -172,8 +177,12 @@ public class Main extends Application {
         createAllButtons();
         shuffleButton();
         addNewGameAction();
+        addSoundsEffectWhenClicked();
         exitGame();
         primaryStage.show();
+
+        musicPlayer = new MusicPlayer();
+        musicPlayer.loadSound("/sounds/button_sound.mp3");
     }
 
     public static void main(String[] args) {
