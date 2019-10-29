@@ -8,7 +8,7 @@
     -fx-font-weight: bold;
 }
 #menuButton{
-    -fx-text-fill: lightslategray;
+    -fx-text-fill: aliceblue;
     -fx-background-color: coral;
     -fx-pref-height: 100px;
     -fx-pref-width: 100px;
