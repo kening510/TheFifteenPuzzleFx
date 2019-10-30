@@ -27,7 +27,7 @@ public class Main extends Application {
     private Button highScoreButton;
     private List<Button> buttonList = new ArrayList<>();
     private MusicPlayer musicPlayer;
-
+// more comments
 
     private void createAllButtons() {
         int buttonNr = 0;
