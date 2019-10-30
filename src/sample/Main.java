@@ -1,7 +1,6 @@
 package sample;
 
 import Controller.GameController;
-import Controller.HighScoreController;
 import View.GameView;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -14,7 +13,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         GameView gv = new GameView();
         GameController gc = new GameController(gv);
-        HighScoreController hc = new HighScoreController();
         primaryStage.setTitle("The Fifteen Puzzle");
         Scene scene = new Scene(gv.designLayout, 425, 375);
         primaryStage.setScene(scene);
