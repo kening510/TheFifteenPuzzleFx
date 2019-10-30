@@ -19,7 +19,7 @@ public class GameView {
     private HBox buttonLayout = new HBox();
     public Button highScoreButton;
 
-    public void createAllButtons() {
+    public void setUp() {
         int buttonNr = 0;
         for (int i = 0; i < 15; i++){
             Button button = new Button("" + ++buttonNr);

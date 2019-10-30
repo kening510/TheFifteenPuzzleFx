@@ -20,7 +20,7 @@ public class Main extends Application {
         Image image = new Image("/pikachu.png");
         primaryStage.getIcons().add(image);
         scene.getStylesheets().add(Main.class.getResource("Style.css").toExternalForm());
-        gv.createAllButtons();
+        gv.setUp();
         gc.setUpButtons();
         gc.shuffleButton();
         primaryStage.show();
