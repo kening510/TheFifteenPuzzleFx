@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-
 public class Main extends Application {
 
     @Override
@@ -15,7 +14,7 @@ public class Main extends Application {
         GameView gv = new GameView();
         GameController gc = new GameController(gv);
         primaryStage.setTitle("The Fifteen Puzzle");
-        Scene scene = new Scene(gv.designLayout, 350, 305);
+        Scene scene = new Scene(gv.designLayout, 425, 375);
         primaryStage.setScene(scene);
         Image image = new Image("/pikachu.png");
         primaryStage.getIcons().add(image);

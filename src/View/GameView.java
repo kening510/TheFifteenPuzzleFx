@@ -17,7 +17,9 @@ public class GameView {
     public GridPane puzzleLayout = new GridPane();
     public VBox designLayout = new VBox();
     private HBox buttonLayout = new HBox();
+    public Button helpButton;
     public Button highScoreButton;
+
 
     public void setUp() {
         int buttonNr = 0;
@@ -40,9 +42,12 @@ public class GameView {
         exitButton.setId("menuButton");
         highScoreButton = new Button("High Score");
         highScoreButton.setId("menuButton");
+        helpButton = new Button("Help");
+        helpButton.setId("helpButton");
         buttonLayout.getChildren().add(newGameButton);
         buttonLayout.getChildren().add(exitButton);
         buttonLayout.getChildren().add(highScoreButton);
+        buttonLayout.getChildren().add(helpButton);
         designLayout.getChildren().add(buttonLayout);
 
         puzzleLayout.setVgap(2);

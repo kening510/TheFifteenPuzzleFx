@@ -17,6 +17,16 @@
     -fx-font-weight: bold;
 }
 
+#helpButton{
+    -fx-text-fill: aliceblue;
+    -fx-background-color: coral;
+    -fx-pref-height: 100px;
+    -fx-pref-width: 100px;
+    -fx-border-radius: 10px;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+}
+
 #odd{
     -fx-background-color: hotpink;
 }
