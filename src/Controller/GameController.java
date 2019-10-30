@@ -13,7 +13,6 @@ import java.util.Optional;
 
 public class GameController {
     private MusicPlayer musicPlayer = new MusicPlayer();
-    private Button highScoreButton = new Button();
     private GameView gv;
     private int currentMoves;
     private HighScoreController hc = new HighScoreController();
