@@ -1,17 +1,16 @@
 package sample;
 
 import javafx.scene.media.AudioClip;
-
 import java.net.URL;
 
-public class MusicPlayer {
+class MusicPlayer {
 
     private AudioClip audioClip;
 
-    public void loadSound(String path){
+    void loadSound(){
         URL url;
         try{
-            url = MusicPlayer.class.getResource(path);
+            url = MusicPlayer.class.getResource("/sounds/button_sound.mp3");
             String realPath = url.toExternalForm();
             audioClip = new AudioClip(realPath);
         }catch(Error e){
@@ -19,7 +18,7 @@ public class MusicPlayer {
         }
     }
 
-    public void playSound(){
+    void playSound(){
         audioClip.play();
     }
 }

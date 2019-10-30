@@ -12,28 +12,27 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+// adding comment
+
 public class Main extends Application {
-    GridPane puzzleLayout = new GridPane();
-    VBox designLayout = new VBox();
-    HBox buttonLayout = new HBox();
-    private Button button;
+    private GridPane puzzleLayout = new GridPane();
+    private VBox designLayout = new VBox();
+    private HBox buttonLayout = new HBox();
     private Button newGameButton;
     private Button exitButton;
     private Button highScoreButton;
     private List<Button> buttonList = new ArrayList<>();
-
     private MusicPlayer musicPlayer;
 
 
-    public void createAllButtons() {
+    private void createAllButtons() {
         int buttonNr = 0;
         for (int i = 0; i < 15; i++){
-            button = new Button("" + ++buttonNr);
+            Button button = new Button("" + ++buttonNr);
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent actionEvent) {
@@ -63,7 +62,7 @@ public class Main extends Application {
         designLayout.getChildren().add(buttonLayout);
     }
 
-    public void moveAction(Button clickedButton){
+    private void moveAction(Button clickedButton){
         int columnIndex = GridPane.getColumnIndex(clickedButton);
         int rowIndex = GridPane.getRowIndex(clickedButton);
 
@@ -96,12 +95,8 @@ public class Main extends Application {
         }
     }
 
-    public void addSoundsEffectWhenClicked() throws IllegalArgumentException{
 
-
-    }
-
-    public Node getButtonFromPuzzle(int col, int row){
+    private Node getButtonFromPuzzle(int col, int row){
         for(Node node: puzzleLayout.getChildren()){
             if(GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row){
                 return node;
@@ -111,7 +106,7 @@ public class Main extends Application {
     }
 
 
-    public void addNewGameAction() {
+    private void addNewGameAction() {
         newGameButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -120,7 +115,7 @@ public class Main extends Application {
         });
     }
 
-    public void exitGame(){
+    private void exitGame(){
         exitButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -139,7 +134,7 @@ public class Main extends Application {
     }
 
 
-    public void shuffleButton() {
+    private void shuffleButton() {
         Collections.shuffle(buttonList);
         emptyPuzzleLayout();
         int counter = 0;
@@ -156,7 +151,7 @@ public class Main extends Application {
         }
     }
 
-    public void emptyPuzzleLayout() {
+    private void emptyPuzzleLayout() {
         puzzleLayout.getChildren().removeAll(buttonList);
     }
 
@@ -177,12 +172,11 @@ public class Main extends Application {
         createAllButtons();
         shuffleButton();
         addNewGameAction();
-        addSoundsEffectWhenClicked();
         exitGame();
         primaryStage.show();
 
         musicPlayer = new MusicPlayer();
-        musicPlayer.loadSound("/sounds/button_sound.mp3");
+        musicPlayer.loadSound();
     }
 
     public static void main(String[] args) {
