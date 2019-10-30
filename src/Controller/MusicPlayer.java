@@ -1,4 +1,4 @@
-package sample;
+package Controller;
 
 import javafx.scene.media.AudioClip;
 import java.net.URL;
@@ -7,7 +7,7 @@ class MusicPlayer {
 
     private AudioClip audioClip;
 
-    void loadSound(){
+    public void loadSound(){
         URL url;
         try{
             url = MusicPlayer.class.getResource("/sounds/button_sound.mp3");
@@ -18,7 +18,7 @@ class MusicPlayer {
         }
     }
 
-    void playSound(){
+    public void playSound(){
         audioClip.play();
     }
 }
