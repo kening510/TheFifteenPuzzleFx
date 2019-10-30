@@ -7,7 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 import java.util.Collections;
 
@@ -162,6 +164,9 @@ public class GameController {
 
     public void win() {
         Alert alert = new Alert(Alert.AlertType.NONE, "Congratulations! You won!", ButtonType.FINISH);
+        //Image image1 = new Image("/cheers.png");
+        Stage stage = (Stage)alert.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("/cheers.png"));
         alert.show();
     }
 
