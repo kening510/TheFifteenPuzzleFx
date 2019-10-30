@@ -19,7 +19,7 @@ public class HighScoreController {
             } else {
                 bufWt = Files.newBufferedWriter(path, StandardOpenOption.CREATE);
             }
-            bufWt.append(name + ": "+moves);
+            bufWt.append(name + ": " + moves);
             bufWt.append("\n");
             bufWt.flush();
             bufWt.close();
@@ -28,21 +28,19 @@ public class HighScoreController {
         }
     }
 
-    public String readHighScoreList(){
+    public String readHighScoreList() {
         StringBuilder stringBuilder = new StringBuilder();
         String records = "";
-        try{
-        BufferedReader bufferedReader = Files.newBufferedReader(Paths.get("high_score_list.txt"));
-        while((records = bufferedReader.readLine()) != null){
-            stringBuilder.append(records);
-            stringBuilder.append("\n");
-        }
-        bufferedReader.close();
-        }catch (IOException e){
+        try {
+            BufferedReader bufferedReader = Files.newBufferedReader(Paths.get("high_score_list.txt"));
+            while ((records = bufferedReader.readLine()) != null) {
+                stringBuilder.append(records);
+                stringBuilder.append("\n");
+            }
+            bufferedReader.close();
+        } catch (IOException e) {
             System.out.println("Error!");
         }
-    return stringBuilder.toString();
-
+        return stringBuilder.toString();
     }
-
 }

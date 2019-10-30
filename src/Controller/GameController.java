@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
 import java.util.Collections;
 import java.util.Optional;
 
@@ -16,7 +17,6 @@ public class GameController {
     private GameView gv;
     private int currentMoves;
     private HighScoreController hc = new HighScoreController();
-
 
     public GameController(GameView gameView) {
         this.gv = gameView;
@@ -58,7 +58,7 @@ public class GameController {
             @Override
             public void handle(ActionEvent actionEvent) {
                 String highScore = hc.readHighScoreList();
-                Alert alert = new Alert(Alert.AlertType.NONE,"Hello", ButtonType.FINISH);
+                Alert alert = new Alert(Alert.AlertType.NONE, "Hello", ButtonType.FINISH);
                 alert.setContentText(highScore);
                 alert.setTitle("High Score List");
                 Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
@@ -114,7 +114,6 @@ public class GameController {
         }
         return null;
     }
-
 
 
     public void shuffleButton() {
@@ -176,19 +175,16 @@ public class GameController {
         stage.getIcons().add(new Image("/cheers.png"));
         alert.showAndWait();
 
-
         TextInputDialog textInputDialog = new TextInputDialog();
         textInputDialog.setTitle("New record");
         textInputDialog.setHeaderText("You have talent!");
         textInputDialog.setContentText("Please enter your name: ");
+        stage = (Stage) textInputDialog.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("/record.png"));
 
         Optional<String> result = textInputDialog.showAndWait();
-        if(result.isPresent()){
-            hc.writeToHighScoreList(result.get(),currentMoves);
+        if (result.isPresent()) {
+            hc.writeToHighScoreList(result.get(), currentMoves);
         }
-
     }
-
-
-
 }

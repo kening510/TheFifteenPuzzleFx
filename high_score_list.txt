@@ -2,3 +2,5 @@ Mimmi: 2
 Lolo: 4
 Kalle: 2
 Anna: 2
+Haha: 4
+珂凝: 2

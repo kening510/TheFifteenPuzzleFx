@@ -5,12 +5,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameView {
-
     public Button newGameButton;
     public Button exitButton;
     public List<Button> buttonList = new ArrayList<>();
@@ -19,7 +17,6 @@ public class GameView {
     private HBox buttonLayout = new HBox();
     public Button helpButton;
     public Button highScoreButton;
-
 
     public void setUp() {
         int buttonNr = 0;
@@ -34,7 +31,6 @@ public class GameView {
             button.setMinHeight(50);
             buttonList.add(button);
         }
-
         designLayout.getChildren().add(puzzleLayout);
         newGameButton = new Button("New Game");
         newGameButton.setId("menuButton");
@@ -56,7 +52,4 @@ public class GameView {
         buttonLayout.setSpacing(5);
         buttonLayout.setPadding(new Insets(10));
     }
-
-
-
 }
