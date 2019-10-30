@@ -24,8 +24,6 @@ public class Main extends Application {
         gv.setUp();
         gc.setUpButtons();
         gc.shuffleButton();
-        hc.readHighScoreList();
-
         primaryStage.show();
     }
 

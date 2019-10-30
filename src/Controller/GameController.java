@@ -54,6 +54,19 @@ public class GameController {
                 cheatingAction();
             }
         });
+
+        gv.highScoreButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                String highScore = hc.readHighScoreList();
+                Alert alert = new Alert(Alert.AlertType.NONE,"Hello", ButtonType.FINISH);
+                alert.setContentText(highScore);
+                alert.setTitle("High Score List");
+                Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+                stage.getIcons().add(new Image("/champion.png"));
+                alert.show();
+            }
+        });
     }
 
 
@@ -103,14 +116,7 @@ public class GameController {
         return null;
     }
 
-    public void getHighScoreList() {
-        highScoreButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                hc.readHighScoreList();
-            }
-        });
-    }
+
 
     public void shuffleButton() {
         Collections.shuffle(gv.buttonList);

@@ -28,16 +28,21 @@ public class HighScoreController {
         }
     }
 
-    public void readHighScoreList(){
-        String records;
+    public String readHighScoreList(){
+        StringBuilder stringBuilder = new StringBuilder();
+        String records = "";
         try{
         BufferedReader bufferedReader = Files.newBufferedReader(Paths.get("high_score_list.txt"));
         while((records = bufferedReader.readLine()) != null){
-            System.out.println(records);
+            stringBuilder.append(records);
+            stringBuilder.append("\n");
         }
         bufferedReader.close();
         }catch (IOException e){
             System.out.println("Error!");
         }
+    return stringBuilder.toString();
+
     }
+
 }
