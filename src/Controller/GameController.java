@@ -4,19 +4,19 @@ import View.GameView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
 import java.util.Collections;
+import java.util.Optional;
 
 public class GameController {
     private MusicPlayer musicPlayer = new MusicPlayer();
     private Button highScoreButton = new Button();
     private GameView gv;
+    private int currentMoves;
+    private HighScoreController hc = new HighScoreController();
 
 
     public GameController(GameView gameView) {
@@ -62,6 +62,7 @@ public class GameController {
         int rowIndex = GridPane.getRowIndex(clickedButton);
 
         musicPlayer.playSound();
+        currentMoves++;
 
         if (getButtonFromPuzzle(columnIndex - 1, rowIndex) == null) {
             if (columnIndex - 1 >= 0) {
@@ -106,6 +107,7 @@ public class GameController {
         highScoreButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                hc.readHighScoreList();
             }
         });
     }
@@ -125,6 +127,7 @@ public class GameController {
                 }
             }
         }
+        currentMoves = 0;
     }
 
     private void emptyPuzzleLayout() {
@@ -146,7 +149,7 @@ public class GameController {
         for (int y = 0; y <= 3; y++) {
             for (int x = 0; x <= 3; x++) {
                 Button b = (Button) getButtonFromPuzzle(x, y);
-                if(i==16 && b == null){
+                if (i == 16 && b == null) {
                     continue;
                 }
                 if (b != null) {
@@ -163,12 +166,24 @@ public class GameController {
     }
 
     public void win() {
-        Alert alert = new Alert(Alert.AlertType.NONE, "Congratulations! You won!", ButtonType.FINISH);
-        //Image image1 = new Image("/cheers.png");
-        Stage stage = (Stage)alert.getDialogPane().getScene().getWindow();
+        Alert alert = new Alert(Alert.AlertType.NONE, "Congratulations! You won!", ButtonType.NEXT);
+        Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image("/cheers.png"));
-        alert.show();
+        alert.showAndWait();
+
+
+        TextInputDialog textInputDialog = new TextInputDialog();
+        textInputDialog.setTitle("New record");
+        textInputDialog.setHeaderText("You have talent!");
+        textInputDialog.setContentText("Please enter your name: ");
+
+        Optional<String> result = textInputDialog.showAndWait();
+        if(result.isPresent()){
+            hc.writeToHighScoreList(result.get(),currentMoves);
+        }
+
     }
+
 
 
 }

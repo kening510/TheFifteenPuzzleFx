@@ -1,0 +1,5 @@
+Anna: 5
+Mimmi: 4
+Kalle: 2
+Ninni: 2
+Lolo: 2
